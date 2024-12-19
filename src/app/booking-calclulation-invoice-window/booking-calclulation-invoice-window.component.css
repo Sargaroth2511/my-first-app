@@ -1,0 +1,44 @@
+.invoice-window {
+    width: 660px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-top: 5vh;
+  }
+  
+  .header {
+      font-weight: bold;
+      height: 5vh;
+      border-bottom: 2px solid black;
+    }
+    
+    table {
+        width: 100%;
+        margin-top: 5px;
+        border-collapse: collapse;
+    }
+    
+    
+    th, td {
+        padding: 8px;
+        text-align: left;
+        width: 130px;
+    }
+    
+  .timespan{
+    width: 180px;
+  }
+  .total{
+    text-align: right;
+  }
+  
+  .footer {
+    margin-top: 10px;
+    border-top: 2px solid black;
+  }
+
+  .index{
+    width: 20px;
+  }
+  

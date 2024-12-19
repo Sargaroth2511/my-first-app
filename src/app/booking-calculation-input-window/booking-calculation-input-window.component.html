@@ -1,0 +1,71 @@
+<div #windowContainer class="booking-window" *ngIf="windowIsVisible">
+    <div class="booking-header">
+      <span>Buchungsabrechnung</span>
+      <button 
+        class="close-button" 
+        (click)="close()">
+        &#10005;
+      </button>
+    </div>
+  
+    <table class="booking-table">
+      <thead>
+        <tr>
+          <th>   </th>
+          <th>Art</th>
+          <th>Vom</th>
+          <th>Bis</th>
+          <th>Preis in Euro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; let i = index">
+                <td *ngIf="i === 0 || rows[i - 1].checked">
+                <input 
+                    type="checkbox"
+                    [(ngModel)]="row.checked"
+                    (change)="onCheckboxChange(i)"
+                    />
+            </td>
+            <td *ngIf="row.checked">
+                <select [(ngModel)]="row.type">
+                  <option value="Vollpension">Vollpension</option>
+                  <option value="Halbpension">Halbpension</option>
+                  <option value="Spezialangebot">Spezialangebot</option>
+                </select>
+            </td>
+            <td *ngIf="row.checked">
+                <input 
+                    type="date"
+                    [(ngModel)]="row.from"
+                    (change)="validateDates(row)"
+                    />
+            </td>
+            <td *ngIf="row.checked">
+                <input 
+                    type="date"
+                    [(ngModel)]="row.to"
+                    (change)="validateDates(row)"
+                />
+            </td>
+            <td *ngIf="row.checked">
+                <input 
+                type="text" 
+                [(ngModel)]="row.price"
+                class="price-input"
+                (change)="validatePrice(row)"
+                placeholder="0,00"
+                />
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="booking-footer">
+      <button *ngIf="formCleared" (click)="restoreForm()">Zurück</button>
+      <button *ngIf="!formCleared"(click)="clearFrom()">Clear</button>
+
+      <button (click)="showInvoice()">Rechnung anzeigen</button>
+      <button (click)="close()">Beenden</button>
+    </div>
+  </div>

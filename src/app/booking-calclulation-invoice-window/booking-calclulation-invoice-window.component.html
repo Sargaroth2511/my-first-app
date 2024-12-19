@@ -1,0 +1,31 @@
+<div class="invoice-window">
+    <div class="header">
+        <span>Rechnung</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th class="index"></th>
+          <th>Art</th>
+          <th c>Zeitraum</th>
+          <th style="text-align: right;">Betrag in €</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of invoiceData; let i = index">
+          <td class="index">{{i + 1}}</td>
+          <td>{{ row.type }}</td>
+          <td class="timespan">
+            {{ row.from | date: 'dd.MM.yyyy' }} - {{ row.to | date: 'dd.MM.yyyy' }}
+          </td>
+          <td style="text-align: right;">{{ row.price }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="footer">
+          <td colspan="4" class="total"><strong>Gesamtbetrag (Euro): {{ calculateTotal() }}</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  

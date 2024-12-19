@@ -1,0 +1,19 @@
+<div class="app-container">
+  <button class="show-window-button" (click)="toggleVisibility()">
+    Zeige Buchungsabrechnung
+  </button>
+
+  <!-- Input Component -->
+  <app-booking-calclulation-input-window
+    *ngIf="showBookingWindow"
+    (rowsChanged)="updateRows($event)"
+    (closeWindow)="toggleVisibility()"
+  ></app-booking-calclulation-input-window>
+
+  <!-- View Component -->
+  <app-booking-calclulation-invoice-window
+    *ngIf="showInvoiceWindow"
+    [invoiceData]="rows"
+    (closeInvoice)="closeInvoiceWindow()"
+  ></app-booking-calclulation-invoice-window>
+</div>
