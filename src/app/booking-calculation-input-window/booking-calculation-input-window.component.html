@@ -27,18 +27,19 @@
                     (change)="onCheckboxChange(i)"
                     />
             </td>
-            <td *ngIf="row.checked">
-                <select [(ngModel)]="row.type">
+            <td *ngIf="row.checked" >
+                <select [(ngModel)]="row.type" class="table-data">
                   <option value="Vollpension">Vollpension</option>
                   <option value="Halbpension">Halbpension</option>
                   <option value="Spezialangebot">Spezialangebot</option>
                 </select>
             </td>
-            <td *ngIf="row.checked">
+            <td *ngIf="row.checked" >
                 <input 
                     type="date"
                     [(ngModel)]="row.from"
                     (change)="validateDates(row)"
+                    class="table-data"
                     />
             </td>
             <td *ngIf="row.checked">
@@ -46,13 +47,14 @@
                     type="date"
                     [(ngModel)]="row.to"
                     (change)="validateDates(row)"
+                    class="table-data"
                 />
             </td>
             <td *ngIf="row.checked">
                 <input 
                 type="text" 
                 [(ngModel)]="row.price"
-                class="price-input"
+                class="price-input table-data"
                 (change)="validatePrice(row)"
                 placeholder="0,00"
                 />

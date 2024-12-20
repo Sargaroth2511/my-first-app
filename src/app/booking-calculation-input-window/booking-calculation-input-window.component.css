@@ -55,8 +55,8 @@
     width: 30px; 
   }
 
-  .booking-table td {
-    color: green;
+  .table-data {
+    color: rgb(14, 128, 14);
     padding-left: 5px;
   }
 
